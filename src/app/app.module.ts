@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
-import { MenuComponent } from './components/share/menu/menu.component';
-import { HeaderComponent } from './components/share/header/header.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
+import { MenuItemComponent } from './components/menu/menu-item/menu-item.component';
 
 // define route
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
     MenuComponent,
     HeaderComponent,
     DashboardComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,
