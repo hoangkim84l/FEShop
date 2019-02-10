@@ -1,0 +1,51 @@
+.sc-choice{
+    margin: 0 16px 0 0;
+    padding: 0;
+    color:#333333;
+    cursor: pointer;
+}
+
+.sc-choice.mul-line{
+    display: block;
+    margin: 8px 0 0 0;
+}
+
+.sc-choice > input {
+    display: none;
+}
+
+.sc-choice > i {
+    position: relative;
+    display: inline-block;
+    width:16px;
+    height:16px;
+    border:2px solid #a6a6a6;
+    border-radius:50%;
+    margin-right:4px;
+}
+
+.sc-choice > input:checked ~ i {
+    border-color: #ab47bc;
+}
+
+.sc-choice > input:checked ~ i:before {
+    content: ' ';
+    position: absolute;
+    width:8px;
+    height:8px;
+    top:2px;
+    left:2px;
+    border-radius:50%;
+    background-color:#ab47bc;
+    
+}
+
+// .sc-choice > input:checked ~ i:before{
+
+// }
+
+.sc-choice > span{
+    text-align: top;
+    vertical-align: top;
+    line-height: 18px;
+}

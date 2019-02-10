@@ -1,0 +1,43 @@
+<honor-card [title]="title" 
+            [inprogress]="inprogress">
+    <form (ngSubmit)="onSubmit(userCreateForm)" #userCreateForm="ngForm">
+        <mat-form-field [color]="'accent'">
+          <!-- <mat-label>Email</mat-label> -->
+          <input matInput placeholder="Email" required [disabled]="user._id" [(ngModel)]="user.email" name="email">
+        </mat-form-field>
+
+        <div class="flex-box">
+            <mat-form-field class="flex-item">
+              <mat-label>First name</mat-label>
+              <input matInput placeholder="First name" [(ngModel)]="user.fname" name="fname" />
+            </mat-form-field>
+
+            <mat-form-field class="flex-item">
+              <mat-label>Last name</mat-label>
+              <input matInput  placeholder="Last name" [(ngModel)]="user.lname" name="lname" />
+            </mat-form-field>
+        </div>
+
+        <div class="flex-box">
+            <mat-form-field class="flex-item">
+              <span matPrefix>+1 &nbsp;</span>
+              <input type="tel" matInput placeholder="Telephone"  [(ngModel)]="user.phone" name="phone">
+            </mat-form-field>
+
+            <mat-form-field class="flex-item">
+                <mat-select placeholder="Gender" [(ngModel)]="user.gender" name="gender">
+                  <mat-option *ngFor="let gender of genders" [value]="gender.id">
+                    {{gender.text}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <mat-divider></mat-divider>
+        
+        <div class="group-action">
+            <button style="margin-left:auto" mat-button type="sunmit" [disabled]="!userCreateForm.form.valid" >{{ submitText }}</button>
+        </div>
+    </form>
+</honor-card>
+

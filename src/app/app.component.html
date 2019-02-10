@@ -1,4 +1,4 @@
-<div class="wrapper ">
+<!-- <div class="wrapper ">
 <left-menu></left-menu>
   <div class="main-panel">
     <header></header>
@@ -6,4 +6,21 @@
         <router-outlet></router-outlet>
     </div>
   </div>
+</div> -->
+
+<app-navbar></app-navbar>
+<div class="left-menu">
+  <left-menu></left-menu>
 </div>
+<div class="content-container">
+    <router-outlet></router-outlet> 
+</div>
+
+<!-- <mat-drawer-container class="site-warpper">
+    <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+    <mat-drawer-content>Main content</mat-drawer-content>
+  </mat-drawer-container> -->
+  <!-- <mat-sidenav-container  class="site-warpper">
+      <mat-sidenav opened></mat-sidenav>
+      <mat-sidenav-content>Main</mat-sidenav-content>
+    </mat-sidenav-container> -->

@@ -30,8 +30,12 @@
               }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               {
                 "input": "src/styles.scss"
+              },
+              {
+                "input": "node_modules/ngx-toastr/toastr.css"
               }
             ],
             "scripts": [
@@ -60,6 +64,14 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
@@ -71,6 +83,9 @@
           "configurations": {
             "production": {
               "browserTarget": "mdb-angular-free:build:production"
+            },
+            "development": {
+              "browserTarget": "mdb-angular-free:build:development"
             }
           }
         },
@@ -88,6 +103,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               {
                 "input": "styles.scss"
               }

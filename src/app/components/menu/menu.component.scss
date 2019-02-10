@@ -1,0 +1,23 @@
+.menu-container {
+    margin:25px;
+    width:250px;
+    max-height: 75vh;
+    overflow: auto;   
+    //ackground-color: #262626; 
+}
+
+a.nav-link {
+    display: block;
+    text-align: left;
+    padding-top :8px;
+    padding-bottom: 8px;
+}
+
+a.nav-link.active{
+    background-color: #9c27b0;
+}
+
+a.nav-link .material-icons{
+    margin-right:8px;
+}
+
