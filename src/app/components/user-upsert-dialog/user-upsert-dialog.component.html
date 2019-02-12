@@ -1,6 +1,7 @@
 <honor-card [title]="title" 
             [inprogress]="inprogress">
     <form (ngSubmit)="onSubmit(userCreateForm)" #userCreateForm="ngForm">
+        <h2>{{title}}</h2>
         <mat-form-field [color]="'accent'">
           <!-- <mat-label>Email</mat-label> -->
           <input matInput placeholder="Email" required [disabled]="user._id" [(ngModel)]="user.email" name="email">
@@ -36,7 +37,8 @@
         <mat-divider></mat-divider>
         
         <div class="group-action">
-            <button style="margin-left:auto" mat-button type="sunmit" [disabled]="!userCreateForm.form.valid" >{{ submitText }}</button>
+            <button style="margin-left:auto" mat-raised-button type="button" (click)="cancel()" >Cancel</button>
+            <button style="margin-left:auto" mat-raised-button color="primary" type="sunmit" [disabled]="!userCreateForm.form.valid" >{{ submitText }}</button>
         </div>
     </form>
 </honor-card>

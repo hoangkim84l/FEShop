@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SingleChoiceComponent } from './single-choice.component';
+import { UserUpsertDialogComponent } from './user-upsert-dialog.component';
 
-describe('SingleChoiceComponent', () => {
-  let component: SingleChoiceComponent;
-  let fixture: ComponentFixture<SingleChoiceComponent>;
+describe('UserCreateComponent', () => {
+  let component: UserUpsertDialogComponent;
+  let fixture: ComponentFixture<UserUpsertDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SingleChoiceComponent ]
+      declarations: [ UserUpsertDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SingleChoiceComponent);
+    fixture = TestBed.createComponent(UserUpsertDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

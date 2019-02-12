@@ -30,7 +30,6 @@ export class BaseBackendService {
     var _ = this;
     return await this.http
                     .get<T[]>(this.url(apiPath))
-                    //.pipe(retry(2))
                     .toPromise()
                     .catch(function(errRes: any){_.handleError(errRes.error,_.notification)}); 
   }

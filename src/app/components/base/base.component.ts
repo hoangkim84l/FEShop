@@ -2,9 +2,6 @@ import { Component,Injector } from '@angular/core';
 import { NotificationService } from '@services/notification.service';
 import {CommonService} from '@services/common.service';
 
-
-
-
 @Component({
   selector: 'app-base-component',
   template:''
@@ -21,7 +18,7 @@ export class BaseComponent  {
   async process<T>(promise:Promise<any>) : Promise<T> {
     this.inprogress = true;
     var retVal = await promise;
-    await this.commonService.delay(30000);
+    await this.commonService.delay(1000);
     this.inprogress = false;
     return retVal;
   }

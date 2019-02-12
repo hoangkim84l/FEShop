@@ -8,6 +8,7 @@ import { MatButtonModule,
   MatInputModule, 
   MatSelectModule,
   MatDialogModule,
+  MatProgressBarModule,
   MatProgressSpinnerModule} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -29,10 +30,8 @@ import { HttpClientModule  } from '@angular/common/http';
 import { HttpInterceptorProvider } from './providers/honor-interceptor-provider';
 import { ErrorHandlerProvider } from './providers/global-error-handle-provider';
 import { UserListComponent } from './components/user-list/user-list.component';
-import { UserCreateComponent } from './components/user-create/user-create.component';
-import { SingleChoiceComponent } from './components/single-choice/single-choice.component';
+import { UserUpsertDialogComponent } from './components/user-upsert-dialog/user-upsert-dialog.component';
 import { HonorCardComponent } from './components/honor-card/honor-card.component';
-import { FormGroupInputComponent } from './components/form-group-input/form-group-input.component';
 //import {ToastrModule} from 'ngx-toastr';
 import {NotificationModule} from '@services/notification.service';
 import { BaseComponent } from './components/base/base.component';
@@ -55,10 +54,8 @@ const routes: Routes = [
     ManageUserComponent,
     MenuItemComponent,
     UserListComponent,
-    UserCreateComponent,
-    SingleChoiceComponent,
+    UserUpsertDialogComponent,
     HonorCardComponent,
-    FormGroupInputComponent,
     BaseComponent,
     TopBarComponent
   ],
@@ -83,13 +80,14 @@ const routes: Routes = [
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [
     HttpInterceptorProvider,
     ErrorHandlerProvider
   ],
-  entryComponents:[UserCreateComponent],
+  entryComponents:[UserUpsertDialogComponent],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

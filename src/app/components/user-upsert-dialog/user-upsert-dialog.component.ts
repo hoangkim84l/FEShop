@@ -12,20 +12,11 @@ interface Gender{
 
 @Component({
   selector: 'user-create',
-  templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.scss']
+  templateUrl: './user-upsert-dialog.component.html',
+  styleUrls: ['./user-upsert-dialog.component.scss']
 })
-export class UserCreateComponent extends BaseComponent implements OnInit {
+export class UserUpsertDialogComponent extends BaseComponent implements OnInit {
   
-
-  // @Input() set userId(_id:String){
-  //   if(!_id) return;
-
-  //   this.loadUser(_id);
-  // };
-
-  // @Output() aUserSubmitted = new EventEmitter<UserSimple>();
-
   user: UserSimple = {};
 
   genders:Gender[]= [{id:0,text:"Female"},{id:1,text:"Male"}];
@@ -40,17 +31,13 @@ export class UserCreateComponent extends BaseComponent implements OnInit {
 
   constructor(inj:Injector,
     private userService:UserService,
-    public dialogRef:MatDialogRef<UserCreateComponent>,
+    public dialogRef:MatDialogRef<UserUpsertDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public userId?:string) { super(inj); }
 
   ngOnInit() {
     if(this.userId) this.loadUser(this.userId);
     
   }
-
-  // onGenderChange(gender:number){
-  //   this.user.gender = gender;
-  // }
 
   async loadUser(id:String){
     this.user = await this.process<UserSimple>(this.userService.Get(id)) || {};
@@ -82,6 +69,10 @@ export class UserCreateComponent extends BaseComponent implements OnInit {
 
     this.showSuccess("Update user success");
     
+  }
+
+  async cancel(){
+    this.dialogRef.close();
   }
 
   clearUserData(){

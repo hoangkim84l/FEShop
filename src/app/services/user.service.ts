@@ -11,5 +11,4 @@ export class UserService extends BaseBackendService {
     super(injector,'/api/v1/users');
   }
 
-  
 }

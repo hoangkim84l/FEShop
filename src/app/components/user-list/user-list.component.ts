@@ -5,7 +5,7 @@ import {BaseComponent} from '../base/base.component';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {UserCreateComponent} from '../user-create/user-create.component';
+import {UserUpsertDialogComponent} from '../user-upsert-dialog/user-upsert-dialog.component';
 
 interface User{
   _id?:string;
@@ -21,7 +21,7 @@ interface User{
 })
 export class UserListComponent extends BaseComponent implements OnInit {
   title:string= "Manage user";
-  displayedColumns: string[] = ['email', 'fullName', 'userType','lastModified'];
+  displayedColumns: string[] = ['action','email', 'fullName', 'userType','lastModified'];
   userDataSource = new MatTableDataSource<User>();
   selection = new SelectionModel<User>(true, []);
   multiSelectMode = false;
@@ -41,21 +41,43 @@ export class UserListComponent extends BaseComponent implements OnInit {
   }
 
   pickupUser(user:User){
-    if(!this.multiSelectMode){
-      this.selection.clear();
-      this.selection.toggle(user);
+    // if(!this.multiSelectMode){
+    //   this.selection.clear();
+    //   this.selection.toggle(user);
 
-      const dialogRef = this.dialog.open(UserCreateComponent, {
-        width: '550px',
-        data: user._id,
-        autoFocus: false,
-        disableClose:true,
-      });
+    //   const dialogRef = this.dialog.open(UserCreateComponent, {
+    //     width: '550px',
+    //     data: user._id,
+    //     autoFocus: false,
+    //     disableClose:true,
+    //   });
 
-      dialogRef.addPanelClass("no-padding");
-      return;
-    }
+    //   dialogRef.addPanelClass("no-padding");
+    //   return;
+    // }
+  }
 
+  openEditPopup(userId:string){
+    const dialogRef = this.dialog.open(UserUpsertDialogComponent, {
+      width: '550px',
+      data: userId,
+      autoFocus: false,
+      disableClose:true,
+    });
+
+    dialogRef.addPanelClass("no-padding");
+    return;
+  }
+
+  openPopupCreate(){
+    const dialogRef = this.dialog.open(UserUpsertDialogComponent, {
+      width: '550px',
+      data: null,
+      autoFocus: false,
+      disableClose:true,
+    });
+
+    dialogRef.addPanelClass("no-padding");
   }
 
 
