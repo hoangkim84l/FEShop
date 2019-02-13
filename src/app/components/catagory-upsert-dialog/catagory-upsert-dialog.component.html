@@ -1,0 +1,21 @@
+<honor-card [title]="title" [inprogress]="inprogress">
+  <form (ngSubmit)="onSubmit(catagoryCreateForm)" #catagoryCreateForm="ngForm">
+    <h2>{{ title }}</h2>
+    
+    <mat-form-field [color]="'accent'">
+      <input matInput placeholder="Name catagory" required [disable]="catagory._id" [(ngModel)]="catagory.catagoryName" name="catagoryName">
+    </mat-form-field>
+
+    <mat-form-field class="flex-item">
+      <mat-select placeholder="Choose parent" [(ngModel)]="catagory.parentId" name="parentId">
+          <mat-option  value="null">Là danh mục cha</mat-option>
+      <mat-option *ngFor="let parent of listParent" [value]="parent._id">{{ parent.catagoryName }}</mat-option>          
+      </mat-select>
+    </mat-form-field>
+
+
+    <button style="margin-left:auto" mat-raised-button type="button" (click)="cancel()" >Cancel</button>
+    <button style="margin-left:auto" mat-raised-button color="primary" type="sunmit" [disabled]="!catagoryCreateForm.form.valid" >{{ submitText }}</button>
+
+  </form>
+</honor-card>

@@ -24,6 +24,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DashboardComponent } from './components-4-route/dashboard/dashboard.component';
 import { ManageUserComponent } from './components-4-route/manage-user/manage-user.component';
+import { ManageCatagoryComponent } from './components-4-route/manage-catagory/manage-catagory.component';
 import { MenuItemComponent } from './components/menu/menu-item/menu-item.component';
 
 import { HttpClientModule  } from '@angular/common/http';
@@ -36,11 +37,14 @@ import { HonorCardComponent } from './components/honor-card/honor-card.component
 import {NotificationModule} from '@services/notification.service';
 import { BaseComponent } from './components/base/base.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { CatagoryListComponent } from './components/catagory-list/catagory-list.component';
+import { CatagoryUpsertDialogComponent } from './components/catagory-upsert-dialog/catagory-upsert-dialog.component';
 // define route
 const routes: Routes = [
   { path: '', redirectTo:'/dashboard',pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'manage-user', component: ManageUserComponent },
+  { path: 'manage-catagory', component: ManageCatagoryComponent },
   //{ path: '**', component: PageNotFoundComponent }
 ];
 
@@ -57,7 +61,10 @@ const routes: Routes = [
     UserUpsertDialogComponent,
     HonorCardComponent,
     BaseComponent,
-    TopBarComponent
+    TopBarComponent,
+    CatagoryListComponent,
+    ManageCatagoryComponent,
+    CatagoryUpsertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +94,7 @@ const routes: Routes = [
     HttpInterceptorProvider,
     ErrorHandlerProvider
   ],
-  entryComponents:[UserUpsertDialogComponent],
+  entryComponents:[UserUpsertDialogComponent,CatagoryUpsertDialogComponent],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

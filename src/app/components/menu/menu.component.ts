@@ -23,6 +23,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.menuItems.push({name:'Dashboard',path:'/dashboard',icon:'dashboard'});
     this.menuItems.push({name:'Manage User',path:'/manage-user',icon:'person'});
+    this.menuItems.push({name:'Manage Catagory',path:'/manage-catagory',icon:'category'});
   }
 
 }
