@@ -25,6 +25,8 @@ export class CatagoryListComponent extends BaseComponent implements OnInit {
   selection = new SelectionModel<Catagory>(true, []);
   multiSelectMode = false;
 
+  public show:boolean = false;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(injector: Injector,
@@ -37,7 +39,6 @@ export class CatagoryListComponent extends BaseComponent implements OnInit {
 
    async loadCatagory(){
       var listAll = await this.process<Catagory[]>(this.catagoryService.All());
-      var listParent = await this.process<Catagory[]>(this.catagoryService.GetParentCategory()); 
 
       this.catagoryDataSource = new MatTableDataSource(listAll);
       this.catagoryDataSource.paginator = this.paginator;
@@ -64,6 +65,20 @@ export class CatagoryListComponent extends BaseComponent implements OnInit {
 
     dialogRef.addPanelClass("no-padding");
   }
+
+  deleteCatagory(_id){    
+      this.process<Catagory>(this.catagoryService.Delete(_id));
+      this.catagoryDataSource.data = this.catagoryDataSource.data.filter(c=>c._id !== _id);
+      this.showSuccess("Delete Category success");
+  }
+  
+  deleteAllCatagory(){ 
+    for(var i=0; i<= this.catagoryDataSource.data.length; i++){
+      this.catagoryDataSource.data = this.catagoryDataSource.data.slice(i);        
+    }   
+    this.showSuccess("Delete Category success");
+  }
+
    /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;

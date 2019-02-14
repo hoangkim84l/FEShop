@@ -17,5 +17,5 @@ export class CatagoryService extends BaseBackendService{
                     .toPromise()
                     .catch(function(errRes: any){_.handleError(errRes.error,_.notification)}); 
   }
-
+  
 }

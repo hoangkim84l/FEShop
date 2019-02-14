@@ -58,6 +58,14 @@ export class BaseBackendService {
                     .catch(function(errRes: any){_.handleError(errRes.error,_.notification)}); 
   }
 
+  async Delete<T>(id:String,apiPath?:String){
+    var _ = this;
+    return await this.http
+                    .delete<T>(`${this.url(apiPath)}/${id}`)
+                    .toPromise()
+                    .catch(function(errRes: any){_.handleError(errRes.error,_.notification)}); 
+  }
+
   async handleError(err: any,notification:NotificationService) {
     notification.error(err.description,err.error);
     // if (error.error instanceof ErrorEvent) {
