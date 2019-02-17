@@ -73,10 +73,16 @@ export class CatagoryListComponent extends BaseComponent implements OnInit {
   }
   
   deleteAllCatagory(){ 
-    for(var i=0; i<= this.catagoryDataSource.data.length; i++){
-      this.catagoryDataSource.data = this.catagoryDataSource.data.slice(i);        
-    }   
-    this.showSuccess("Delete Category success");
+    var _ = this
+    let numSelected = this.selection.selected;
+    let cataList = this.catagoryDataSource.data;
+    console.log(_);
+    numSelected.forEach(function (element, index) {
+      console.log(_);
+      _.process<Catagory>(_.catagoryService.Delete(element._id));
+      _.catagoryDataSource.data = cataList.splice(index,1);     
+    });
+     this.showSuccess("Delete Category success");
   }
 
    /** Whether the number of selected elements matches the total number of rows. */

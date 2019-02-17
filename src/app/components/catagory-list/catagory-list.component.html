@@ -1,5 +1,5 @@
 <button mat-raised-button color="primary" (click)="openPopupCreate()">Add New</button>
-<button mat-raised-button color="accent" (click)="deleteAllCatagory()">Delete All</button><br/><br/>
+<button mat-raised-button color="accent" *ngIf="selection.hasValue()" (click)="deleteAllCatagory()">Delete All</button><br/><br/>
 <honor-card [title]="title" [inprogress]="inprogress">
   <table class="tbl-catagory" mat-table [dataSource]="catagoryDataSource">
 
